@@ -893,6 +893,7 @@ Style/StabbyLambdaParentheses:
     - require_no_parentheses
 
 Style/StringLiterals:
+  Enabled: false
   EnforcedStyle: single_quotes
   SupportedStyles:
     - single_quotes
