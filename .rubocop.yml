@@ -456,6 +456,7 @@ Style/Encoding:
   AutoCorrectEncodingComment: '# encoding: utf-8'
 
 Style/ExtraSpacing:
+  Enabled: false
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
