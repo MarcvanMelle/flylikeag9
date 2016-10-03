@@ -399,6 +399,7 @@ Style/Copyright:
   AutocorrectNotice: ''
 
 Style/DocumentationMethod:
+  Enabled: false
   RequireForNonPublicMethods: false
 
 # Multi-line method chaining should be done with leading dots.
