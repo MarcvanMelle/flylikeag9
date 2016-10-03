@@ -65,7 +65,7 @@ DeprecatedHashMethods:
   Enabled: false
 
 Documentation:
-  Enabled: true
+  Enabled: false
 
 DotPosition:
   EnforcedStyle: trailing
