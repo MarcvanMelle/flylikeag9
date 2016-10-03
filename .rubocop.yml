@@ -516,6 +516,7 @@ Style/FormatString:
     - percent
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
   EnforcedStyle: when_needed
   SupportedStyles:
     # `when_needed` will add the frozen string literal comment to files
