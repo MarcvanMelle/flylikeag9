@@ -12,19 +12,11 @@ class SessionsController < Devise::SessionsController
     if params[:user]
       user = User.find_by(email: params[:user][:email])
     end
-    if user
-      if user.password == params[:user][:password]
-        super
-      else
-        super
-      end
+    if params[:user] && !user
+      flash[:errors] = "You must create an account to sign in."
+      redirect_to new_user_registration_path
     else
-      if params[:user]
-        flash[:errors] = "You must create an account to sign in."
-        redirect_to new_user_registration_path
-      else
-        super
-      end
+      super
     end
   end
 
@@ -43,6 +35,4 @@ class SessionsController < Devise::SessionsController
   def destroy
     super
   end
-
-
 end
