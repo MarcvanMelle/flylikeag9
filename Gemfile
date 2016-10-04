@@ -6,11 +6,11 @@ gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
-gem 'dotenv'
 gem 'devise'
 gem 'carrierwave'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
