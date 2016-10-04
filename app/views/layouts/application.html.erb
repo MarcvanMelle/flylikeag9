@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% unless controller_name == "registrations" && action_name == "new" %>
+      <%= render "layouts/sign_in_form" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
