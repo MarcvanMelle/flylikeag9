@@ -9,8 +9,16 @@
   </head>
 
   <body>
-    <% unless controller_name == "registrations" && action_name == "new" %>
-      <%= render "layouts/sign_in_form" %>
+    <% if current_user %>
+      <h4>Signed in as <%= current_user.username %></h4>
+    <% else%>
+      <% if controller_name != "sessions" && action_name != "new" %>
+        <% if controller_name != "registrations"%>
+          <% if action_name != "new" || action_name != "show" %>
+            <%= render "layouts/sign_in_form" %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>

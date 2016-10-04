@@ -4,6 +4,28 @@ feature "As an unregistered user, I can create an account" do
   let!(:existing_username) { FactoryGirl.create(:user, username: "ButtonBoy01") }
   let!(:existing_user_email) { FactoryGirl.create(:user, email: "grapesApedude01@gmail.com") }
   before { visit new_user_registration_path }
+
+  context "User visits home page" do
+    scenario "User clicks sign up link" do
+      visit root_path
+
+      expect(page).to have_link("Sign up")
+      click_link("Sign up")
+
+      expect(page).to have_content("Sign up")
+      expect(page).to have_content("Username")
+      expect(page).to have_field("Username")
+      expect(page).to have_content("Email")
+      expect(page).to have_field("Email")
+      expect(page).to have_content("Password")
+      expect(page).to have_field("Password")
+      expect(page).to have_content("Password confirmation")
+      expect(page).to have_field("Password confirmation")
+      expect(page).to have_button("Sign up")
+      expect(page).to have_link("Log in")
+    end
+  end
+
   context "User navigates to sign up page" do
     scenario "User sees a page with sign up information" do
       expect(page).to have_content("Sign up")
@@ -28,7 +50,7 @@ feature "As an unregistered user, I can create an account" do
       fill_in("Password confirmation", with: "abcedf")
 
       click_button("Sign up")
-      expect(page).to have_content("pup")
+      expect(page).to have_content("Signed in as ButtonBoy02")
     end
   end
 
