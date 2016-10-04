@@ -1073,7 +1073,7 @@ Style/VariableNumber:
     - non_integer
 
 Style/WhileUntilModifier:
-  MaxLineLength: 80
+  MaxLineLength: 150
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
@@ -1102,18 +1102,18 @@ Metrics/BlockNesting:
 
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
-  Max: 100
+  Max: 150
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
-  Max: 100
+  Max: 150
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
   Max: 6
 
 Metrics/LineLength:
-  Max: 80
+  Max: 150
   # To make it possible to copy or click on URIs in the code, we allow lines
   # containing a URI to be longer than Max.
   AllowHeredoc: true
@@ -1124,7 +1124,7 @@ Metrics/LineLength:
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
-  Max: 10
+  Max: 15
 
 Metrics/ParameterLists:
   Max: 5
