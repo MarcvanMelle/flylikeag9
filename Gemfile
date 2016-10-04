@@ -7,6 +7,8 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'dotenv'
+gem 'devise'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails'
