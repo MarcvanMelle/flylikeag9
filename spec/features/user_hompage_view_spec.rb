@@ -5,8 +5,7 @@ require_relative '../support/factories'
 feature "user visits homepage" do
   let!(:wordlist) { FactoryGirl.create_list(:word, 15) }
   context "and as a user" do
-
-    scenario "I can visit the hompage and see a list of the 10 most recently made words" do
+    scenario "I can see a list of the 10 most recently made words" do
       visit '/'
 
       expect(page).to have_content("Word15")
