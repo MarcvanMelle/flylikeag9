@@ -9,9 +9,8 @@ class SessionsController < Devise::SessionsController
   end
 
   def new
-    if params[:user]
-      user = User.find_by(email: params[:user][:email])
-    end
+    user = User.find_by(email: params[:user][:email]) if params[:user]
+    
     if params[:user] && !user
       flash[:errors] = "You must create an account to sign in."
       redirect_to new_user_registration_path

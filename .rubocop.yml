@@ -427,6 +427,7 @@ Style/EmptyLineBetweenDefs:
   AllowAdjacentOneLineDefs: false
 
 Style/EmptyLinesAroundBlockBody:
+  Enabled: false
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
