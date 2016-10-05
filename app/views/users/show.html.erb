@@ -1,0 +1,16 @@
+<h1><%= @user.username %>'s Profile Page</h1>
+
+<h2>Submitted Words</h2>
+<% @user.words.each do |word| %>
+  <%= link_to word.word, word_path(word) %>
+  <% if current_user == @user %>
+    <%= link_to "Update #{word.word}", edit_word_path(word) %>
+  <% end %>
+<% end %>
+
+<h2>Submitted Reviews</h2>
+<% @user.reviews.each do |review| %>
+  <h4><%= review.word.word %></h4>
+  <h5><%= review.rating %></h5>
+  <p><%= review.review %></p>
+<% end %>
