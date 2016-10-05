@@ -19,12 +19,12 @@ feature "User can write review" do
     end
   end
 
-   context "As an unauthenticated user" do
-     scenario "I should not be able to see the Write Review field or the Submit Review button" do
+  context "As an unauthenticated user" do
+    scenario "I should not be able to see the Write Review field or the Submit Review button" do
       visit word_path(word1)
 
       expect(page).to_not have_field "Write Review"
       expect(page).to_not have_button "Submit Review"
-     end
-   end
+    end
+  end
 end
