@@ -1,5 +1,6 @@
 Dir[__dir__ + '/support/*.rb'].each { |file| require_relative file }
 
+require 'devise'
 require 'coveralls'
 Coveralls.wear!('rails')
 
