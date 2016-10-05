@@ -1,7 +1,7 @@
 Dir[__dir__ + '/support/*.rb'].each { |file| require_relative file }
 
-# require 'coveralls'
-# Coveralls.wear!('rails')
+require 'coveralls'
+Coveralls.wear!('rails')
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
