@@ -1,6 +1,4 @@
 require 'rails_helper'
-require 'factory_girl'
-require_relative '../support/factory'
 
 feature "user visits homepage" do
   context "and as a user" do
