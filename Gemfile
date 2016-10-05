@@ -17,6 +17,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
+  gem 'kaminari'
 end
 
 group :test do

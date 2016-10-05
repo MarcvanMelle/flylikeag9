@@ -1,5 +1,8 @@
 <div id="word_list">
   <% @words.each do |word| %>
-    <li><%= word.word %> <%= word.definition %></li>
+    <li>Word: <%= word.word %> Definition: <%= word.definition %></li>
   <% end %>
+</div>
+<div>
+  <%= paginate @words %>
 </div>
