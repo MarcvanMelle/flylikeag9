@@ -6,4 +6,8 @@ class WordsController < ApplicationController
   def home
     @words = Word.all.order!(created_at: :desc).limit(10)
   end
+
+  def show
+    @word = Word.find(params[:id])
+  end
 end
