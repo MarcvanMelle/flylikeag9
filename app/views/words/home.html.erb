@@ -1,5 +1,5 @@
 <div id="word_list">
   <% @words.each do |word| %>
-    <li><%= word.word %> <%= word.definition %></li>
+    <li><%= link_to word.word, word_path(word.id) %></li>
   <% end %>
 </div>
