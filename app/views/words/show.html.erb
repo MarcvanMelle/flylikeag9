@@ -1,2 +1,5 @@
 <%= @word.word %>
 <%= @word.definition %>
+<% if current_user == @word.user %>
+  <%= link_to 'Update Content', edit_word_path(@word) %>
+<% end %>
