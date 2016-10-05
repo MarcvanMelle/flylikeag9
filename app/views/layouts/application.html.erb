@@ -11,6 +11,7 @@
   <body>
     <% if current_user %>
       <h4>Signed in as <%= current_user.username %></h4>
+      <%= link_to "My Profile", user_path(current_user) %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else%>
       <% if controller_name != "sessions" && action_name != "new" %>
