@@ -6,6 +6,9 @@
 <h4>Reviews</h4>
   <% @reviews.each do |review| %>
     <%= review.rating %> <%= review.review %>
+    <% if review.user == current_user %>
+      <%= link_to "Edit Review", edit_word_review_path(review) %>
+    <% end %>
   <% end %>
 <% if user_signed_in? %>
   <%= form_for [@word, @review] do |f| %>
