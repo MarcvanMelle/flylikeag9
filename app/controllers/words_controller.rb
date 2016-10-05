@@ -9,6 +9,8 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
+    @review = Review.new
+    @reviews = @word.reviews
   end
 
   def edit
