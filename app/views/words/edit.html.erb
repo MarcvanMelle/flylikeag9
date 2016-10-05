@@ -1,0 +1,9 @@
+<%= @word.word %>
+
+<%= form_for :word, method: :patch, url: word_path(@word) do |f| %>
+
+  <%= f.label :definition %>
+  <%= f.text_area :definition %>
+
+  <%= f.submit "Update Word" %>
+<% end %>

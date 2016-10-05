@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   root "words#home"
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   resources :reviews
-  resources :words, only: [:index, :home, :show]
+  resources :words, only: [:index, :home, :show, :edit]
   resources :users
 end
