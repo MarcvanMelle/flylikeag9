@@ -8,10 +8,7 @@ feature "User updates a word they posted" do
 
   context "As a user" do
     scenario "I can click a link to go to my word's update page" do
-      fill_in("Login-Email", with: user.email)
-      fill_in("Login-Password", with: user.password)
-      check("Remember me")
-      click_button("Sign in")
+      login_as(user, scope: :user)
       visit word_path(word1)
       click_link "Update Content"
 
