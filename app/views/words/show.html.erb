@@ -3,3 +3,18 @@
 <% if current_user == @word.user %>
   <%= link_to 'Update Content', edit_word_path(@word) %>
 <% end %>
+<h4>Reviews</h4>
+  <% @reviews.each do |review| %>
+    <%= review.rating %> <%= review.review %>
+  <% end %>
+<% if user_signed_in? %>
+  <%= form_for [@word, @review] do |f| %>
+    <%= f.label :rating, "Rating" %>
+    <%= f.select :rating, options_for_select(["0", "1", "2", "3", "4", "5"]) %>
+
+    <%= f.label :review, "Write Review" %>
+    <%= f.text_field :review %>
+
+    <%= f.submit "Submit Review" %>
+  <% end %>
+<% end %>
