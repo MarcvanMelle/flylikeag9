@@ -27,7 +27,7 @@ feature "User can reset password" do
 
       expect(page).to have_content("You will receive an email with instructions")
     end
-    
+
     scenario "I can't submit for a reset without inserting an email" do
       click_link("Forgot your password?")
       click_button("Send me reset password instructions")
