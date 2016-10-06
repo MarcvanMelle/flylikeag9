@@ -19,8 +19,17 @@ class WordsController < ApplicationController
 
   def update
     @word.definition = params[:word][:definition]
-    @word.save
-    redirect_to word_path(@word)
+    if authorized_party
+      if @word.save
+        flash[:success] = "Word was Updated!"
+        redirect_to word_path(@word)
+      else
+        flash[:error] = "Word could not be Updated"
+        render word_path(@word)
+      end
+    else
+      render(file: File.join(Rails.root, 'public/403.html'), status: 403, layout: false)
+    end
   end
 
   def destroy
