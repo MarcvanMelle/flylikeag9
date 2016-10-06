@@ -6,7 +6,7 @@
 <h4>Reviews</h4>
   <% @reviews.each do |review| %>
     <%= review.rating %> <%= review.body %>
-    <% if review.user == current_user %>
+    <% if current_user.try(:admin?) || current_user == review.user %>
       <%= link_to "Edit Review", edit_word_review_path(review) %>
     <% end %>
   <% end %>
