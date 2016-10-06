@@ -25,13 +25,13 @@ feature "User profile page" do
       expect(page).to have_link(word1.word)
       expect(page).to have_content(review1.word.word)
       expect(page).to have_content(review1.rating)
-      expect(page).to have_content(review1.review)
+      expect(page).to have_content(review1.body)
     end
 
     scenario "I should not see words and reviews that are not mine" do
       expect(page).to_not have_link(word2.word)
       expect(page).to_not have_content(review2.word.word)
-      expect(page).to_not have_content(review2.review)
+      expect(page).to_not have_content(review2.body)
     end
 
     scenario "I should be able to navigate to one of my words by clicking on its link on my profile" do
