@@ -14,3 +14,7 @@
   <h5><%= review.rating %></h5>
   <p><%= review.body %></p>
 <% end %>
+
+<% if current_user.try(:admin?) || current_user == @user %>
+  <%= link_to "Delete User Account", user_path(@user), method: :delete %>
+<% end %>

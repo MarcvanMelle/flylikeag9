@@ -1,3 +1,5 @@
+<h1>10 Most Recent Words</h1>
+
 <div id="word_list">
   <% @words.each do |word| %>
     <li><%= link_to word.word, word_path(word.id) %></li>
