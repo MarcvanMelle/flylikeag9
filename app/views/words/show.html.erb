@@ -6,8 +6,9 @@
 <h4>Reviews</h4>
   <% @reviews.each do |review| %>
     <%= review.rating %> <%= review.body %>
-    <% if review.user == current_user %>
+    <% if current_user.try(:admin?) || review.user == current_user %>
       <%= link_to "Edit Review", edit_word_review_path(review) %>
+      <%= link_to "Delete Review", word_review_path(review), method: :delete %>
     <% end %>
   <% end %>
 <% if user_signed_in? %>
