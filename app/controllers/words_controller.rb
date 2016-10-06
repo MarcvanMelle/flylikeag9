@@ -18,7 +18,6 @@ class WordsController < ApplicationController
   end
 
   def update
-    binding.pry
     @word.definition = params[:word][:definition]
     if authorized_party
       if @word.save
