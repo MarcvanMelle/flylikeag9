@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Admin can update word" do
+feature "Admin can update review" do
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:users) { FactoryGirl.create_list(:user, 2) }
   let!(:word) { FactoryGirl.create(:word, user: users[0]) }
@@ -27,7 +27,7 @@ feature "Admin can update word" do
   end
 
   context "As non-admin authenticated user" do
-    scenario "I cannot curl into the update action" do
+    scenario "I cannot curl into the review update action" do
       login_as(users[0], scope: :user)
       page.driver.submit :patch, "/words/#{word.id}/reviews/#{review.id}", { review: { body: "I'm a hacker. I hacked your review, sucka" } }
 
