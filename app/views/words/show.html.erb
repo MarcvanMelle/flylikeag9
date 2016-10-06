@@ -11,13 +11,5 @@
     <% end %>
   <% end %>
 <% if user_signed_in? %>
-  <%= form_for [@word, @review] do |f| %>
-    <%= f.label :rating, "Rating" %>
-    <%= f.select :rating, options_for_select(["0", "1", "2", "3", "4", "5"]) %>
-
-    <%= f.label :review, "Write Review" %>
-    <%= f.text_field :review %>
-
-    <%= f.submit "Submit Review" %>
-  <% end %>
+  <%= render "/layouts/review_form" %>
 <% end %>

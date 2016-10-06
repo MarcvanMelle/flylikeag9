@@ -12,8 +12,8 @@ feature "User updates review" do
       visit word_path(word)
       click_link "Edit Review"
       select("5", from: "Rating")
-      fill_in("Edit Review", with: "This is the best most awesome word I have ever read")
-      click_button "Save Changes"
+      fill_in("Review Text", with: "This is the best most awesome word I have ever read")
+      click_button "Save Review"
 
       expect(page).to have_content "This is the best most awesome word I have ever read"
     end
