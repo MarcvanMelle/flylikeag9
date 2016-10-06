@@ -278,6 +278,7 @@ Style/BlockDelimiters:
     - it
 
 Style/BracesAroundHashParameters:
+  Enabled: false
   EnforcedStyle: context_dependent
   SupportedStyles:
     # The `braces` style enforces braces around all method parameters that are
