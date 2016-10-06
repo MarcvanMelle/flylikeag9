@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :fetch_word, only: [:edit, :update, :destroy]
 
   def create
+    binding.pry
     @review = Review.new(review_params)
     if @review.save
       flash[:success] = "Review was saved!"
@@ -47,10 +48,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    new_params = params.require(:review).permit(:body, :rating)
-    new_params[:word_id] = params[:word_id]
-    new_params[:user] = current_user
-    new_params
+    params.require(:review).permit(:body, :rating).merge(user: current_user).merge(word_id: params[:word_id])
   end
 
   def update_review_params
