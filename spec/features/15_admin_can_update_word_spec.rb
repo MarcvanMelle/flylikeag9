@@ -18,7 +18,7 @@ feature "Admin can update word" do
   end
 
   context "As non-admin authenticated user" do
-    scenario "I cannot curl into the update action" do
+    scenario "I cannot curl into the word update action" do
       login_as(users[1], scope: :user)
       page.driver.submit :patch, "/words/#{word.id}", { word: { definition: "I'm a hacker" } }
 
