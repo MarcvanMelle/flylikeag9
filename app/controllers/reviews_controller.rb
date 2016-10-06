@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
   end
 
   def update_review_params
-    new_params = params.require(:review).permit(:body, :rating)
+    params.require(:review).permit(:body, :rating)
   end
 
   def fetch_review
