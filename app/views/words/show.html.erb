@@ -13,3 +13,6 @@
 <% if user_signed_in? %>
   <%= render "/layouts/review_form" %>
 <% end %>
+<% if current_user.admin || current_user == @word.user %>
+  <%= link_to "Delete Word",  word_path(@word), method: :delete %>
+<% end %>
