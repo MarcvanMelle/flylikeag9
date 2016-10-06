@@ -23,7 +23,7 @@ feature "Admin can update word" do
     scenario "Deleting a user deletes all their words" do
       login_as(admin, scope: :user)
       visit user_path(users[0])
-      deleted_words =  users[0].words
+      deleted_words = users[0].words
 
       click_link "Delete User Account"
 
