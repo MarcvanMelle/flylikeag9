@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :fetch_word, only: [:edit, :update, :destroy]
 
   def create
-    binding.pry
     @review = Review.new(review_params)
     if @review.save
       flash[:success] = "Review was saved!"
