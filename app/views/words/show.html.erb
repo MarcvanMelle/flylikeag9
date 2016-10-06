@@ -5,11 +5,14 @@
 <% end %>
 <h4>Reviews</h4>
   <% @reviews.each do |review| %>
-    <%= review.rating %> <%= review.review %>
+    <%= review.rating %> <%= review.body %>
     <% if review.user == current_user %>
       <%= link_to "Edit Review", edit_word_review_path(review) %>
     <% end %>
   <% end %>
 <% if user_signed_in? %>
   <%= render "/layouts/review_form" %>
+<% end %>
+<% if current_user.try(:admin?) || current_user == @word.user %>
+  <%= link_to "Delete Word",  word_path(@word), method: :delete %>
 <% end %>
