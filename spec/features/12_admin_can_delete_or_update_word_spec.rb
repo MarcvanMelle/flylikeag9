@@ -19,7 +19,6 @@ feature "Admin can delete word" do
     scenario "I cannot delete a word that is not mine" do
       login_as(user[1], scope: :user)
       page.driver.submit :delete, "/words/#{word.id}", {}
-      save_and_open_page
 
       expect(page).to have_content "You do not have permission to access this page!"
     end
