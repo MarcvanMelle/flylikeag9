@@ -1,0 +1,9 @@
+<%= form_for [@word, @review] do |f| %>
+  <%= f.label :rating, "Rating" %>
+  <%= f.select :rating, options_for_select(["0", "1", "2", "3", "4", "5"]) %>
+
+  <%= f.label :review, "Review Text" %>
+  <%= f.text_field :review %>
+
+  <%= f.submit "Save Review" %>
+<% end %>
