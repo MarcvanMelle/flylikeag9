@@ -1,0 +1,16 @@
+<h1>Add a new word</h1>
+<% if flash[:errors] %>
+  <p>
+    <%= flash[:errors] %>
+  </p>
+<% end %>
+<%= form_for :word, url: words_path do |f| %>
+
+  <%= f.label :word %>
+  <%= f.text_field :word %>
+
+  <%= f.label :definition %>
+  <%= f.text_area :definition %>
+
+  <%= f.submit "Create Word" %>
+<% end %>
