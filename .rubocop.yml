@@ -769,6 +769,7 @@ Style/MultilineOperationIndentation:
   IndentationWidth: ~
 
 Style/NumericLiterals:
+  Enabled: false
   MinDigits: 5
 
 Style/NumericLiteralPrefix:
