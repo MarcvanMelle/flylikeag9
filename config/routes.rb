@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :words, only: [:index, :home, :show, :new, :create, :edit, :update, :destroy] do
     resources :reviews
   end
-  resources :users
+  resources :users do
+    member do
+      delete :remove_avatar
+    end
+  end
 end
