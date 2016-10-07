@@ -14,6 +14,28 @@ class WordsController < ApplicationController
     @reviews = @word.reviews
   end
 
+  def new
+    if current_user
+      @word = Word.new
+    else
+      flash[:errors] = "You must be logged in to create a word."
+      redirect_to root_path
+    end
+  end
+
+  def create
+    if current_user
+      @word = Word.new(word_params)
+      if @word.save
+        flash[:success] = "Word up!"
+        redirect_to root_path
+      else
+        flash[:errors] = "Word could not be created."
+        render :new
+      end
+    end
+  end
+
   def edit
   end
 
@@ -47,6 +69,10 @@ class WordsController < ApplicationController
   end
 
   private
+
+  def word_params
+    params.require(:word).permit(:word, :definition).merge(user: current_user)
+  end
 
   def fetch_word
     @word = Word.find(params[:id])

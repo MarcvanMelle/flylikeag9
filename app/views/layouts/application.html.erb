@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <%= link_to "Add a new word", new_word_path %>
     <% if current_user %>
       <h4>Signed in as <%= current_user.username %></h4>
       <%= link_to "My Profile", user_path(current_user) %>
@@ -24,6 +25,12 @@
     <% end %>
     <% if flash[:notice] %>
       <%= flash[:notice] %>
+    <% end %>
+    <% if flash[:success] %>
+      <%= flash[:success] %>
+    <% end %>
+    <% if flash[:errors] %>
+      <%= flash[:errors] %>
     <% end %>
     <%= yield %>
   </body>
