@@ -58,7 +58,7 @@ feature "The User profile picture" do
       user = FactoryGirl.create(:user)
       login_as(user, scope: :user)
       visit user_path(user)
-      click_link("Delete")
+      click_link("Delete Profile Picture")
 
       expect(page).to have_css("img[src*='/assets/Man_Silhouette-7f29be934ab1ff88eb44399ee58e4bfda97efdf0b61ea3d17e11bf69d61bc080.jpg']")
     end
@@ -68,7 +68,7 @@ feature "The User profile picture" do
       login_as(user, scope: :user)
       visit user_path(user)
 
-      expect(page).to_not have_link("Delete")
+      expect(page).to_not have_link("Delete Profile Picture")
     end
 
     scenario "User can't delete another user's profile picture" do
@@ -76,7 +76,7 @@ feature "The User profile picture" do
       login_as(user[0], scope: :user[0])
       visit user_path(user[1])
 
-      expect(page).to_not have_link("Delete")
+      expect(page).to_not have_link("Delete Profile Picture")
     end
   end
 end
