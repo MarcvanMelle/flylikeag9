@@ -26,7 +26,6 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 end
-# 
 # RSpec.configure do |config|
 #   config.after(:each) do
 #     if Rails.env.test? || Rails.env.cucumber?
