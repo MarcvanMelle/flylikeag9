@@ -22,6 +22,6 @@ FactoryGirl.define do
   # When creating instances, include a user and a word
   factory :review do
     rating 3
-    sequence(:review) { |n| "#{n}This is a short review of a word." }
+    sequence(:body) { |n| "#{n}This is a short review of a word." }
   end
 end
