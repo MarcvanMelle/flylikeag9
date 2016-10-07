@@ -8,6 +8,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave'
+gem 'kaminari'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -17,7 +18,6 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'kaminari'
 end
 
 group :test do
