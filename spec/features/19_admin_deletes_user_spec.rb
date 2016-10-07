@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Admin can update word" do
+feature "Admin can delete user" do
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:users) { FactoryGirl.create_list(:user, 4) }
   let!(:words) { FactoryGirl.create_list(:word, 4, user: users[0]) }
