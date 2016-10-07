@@ -1,0 +1,11 @@
+<%= form_for :user, method: :patch, url: user_path(@user) do |f| %>
+  <div class="field">
+    Change Profile Picture:
+    <%= f.label :avatar do %>
+      <%= f.file_field :avatar %>
+    <% end %>    
+  </div>
+  <div class="actions">
+    <%= f.submit "Update Profile Picture" %>
+  </div>
+<% end %>
