@@ -227,7 +227,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   capybara-webkit
-  carrierwave (>= 1.0.0.beta, < 2.0)
+  carrierwave
   coveralls
   database_cleaner
   devise
