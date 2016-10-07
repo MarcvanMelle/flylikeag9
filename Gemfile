@@ -7,9 +7,14 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
+<<<<<<< HEAD
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'mini_magick'
 
+=======
+gem 'carrierwave'
+gem 'kaminari'
+>>>>>>> master
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -19,7 +24,6 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
-  gem 'kaminari'
 end
 
 group :test do
