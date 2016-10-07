@@ -6,6 +6,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "jarlax#{n}@launchacademy.com" }
     password "abcdef1234"
     password_confirmation "abcdef1234"
+    avatar { Rack::Test::UploadedFile.new(File.join(Rails.root, '/spec/support/images/myfile.jpg')) }
     factory :admin do
       admin true
     end
