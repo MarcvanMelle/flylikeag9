@@ -19,6 +19,8 @@
         <% if controller_name != "registrations"%>
           <% if action_name != "new" || action_name != "show" %>
             <%= render "layouts/sign_in_form" %>
+            <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %>
+            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
           <% end %>
         <% end %>
       <% end %>
