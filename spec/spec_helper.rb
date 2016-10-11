@@ -9,7 +9,8 @@ Coveralls.wear!('rails')
 
 Capybara.default_host = 'http://localhost:3000'
 OmniAuth.config.test_mode = true
-OmniAuth.config.add_mock(:github,
+OmniAuth.config.add_mock(
+:github,
 {
   uid: "12345",
   info: {
@@ -18,7 +19,8 @@ OmniAuth.config.add_mock(:github,
   }
 })
 
-OmniAuth.config.add_mock(:facebook,
+OmniAuth.config.add_mock(
+:facebook,
 {
   uid: "67890",
   info: {
