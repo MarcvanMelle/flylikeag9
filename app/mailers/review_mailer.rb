@@ -1,5 +1,4 @@
 class ReviewMailer < ApplicationMailer
-
   def review_notification(user)
     @user = user
     @url  = 'http://localhost:3000/'
