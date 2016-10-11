@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       delete :remove_avatar
     end
   end
+  resources :search, only: [:index]
 end
