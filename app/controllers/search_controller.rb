@@ -4,8 +4,7 @@ class SearchController < ApplicationController
     if @word_results.empty?
       flash[:error] = "Word could not be found"
       redirect_to words_path
-    end
-    if params[:search] == ""
+    elsif params[:search] == ""
       flash[:error] = "You must enter something"
       redirect_to words_path
     end
