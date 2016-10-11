@@ -10,20 +10,20 @@ Coveralls.wear!('rails')
 Capybara.default_host = 'http://localhost:3000'
 OmniAuth.config.test_mode = true
 OmniAuth.config.add_mock(:github, {
-  uid: "12345",
-  info: {
-    email: "beetleborgs@gmail.com",
-    nickname: "MightyBeetleBorg"
-  }
-})
+    uid: "12345",
+    info: {
+      email: "beetleborgs@gmail.com",
+      nickname: "MightyBeetleBorg"
+    }
+  })
 
 OmniAuth.config.add_mock(:facebook, {
-  uid: "67890",
-  info: {
-    email: "beetleborgs@gmail.com",
-    name: "BigBadBeetleBorgs"
-  }
-})
+    uid: "67890",
+    info: {
+      email: "beetleborgs@gmail.com",
+      name: "BigBadBeetleBorgs"
+    }
+  })
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
