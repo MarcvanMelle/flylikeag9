@@ -54,6 +54,11 @@ class WordsController < ApplicationController
     end
   end
 
+  def search
+    binding.pry
+    @searched_words = Word.search(params[:search])
+  end
+
   def destroy
     if authorized_party
       if @word.delete

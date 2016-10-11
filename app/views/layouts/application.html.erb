@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <%= form_tag search_index_path, method: 'get' do %>
+      <p>
+        Search for a word:
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", name: nil %>
+      </p>
+    <% end %>
     <%= link_to "Add a new word", new_word_path %>
     <% if current_user %>
       <h4>Signed in as <%= current_user.username %></h4>
