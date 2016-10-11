@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:github, :facebook]
+         :omniauthable, omniauth_providers: [:github, :facebook]
 
   def self.from_omniauth(auth)
     if User.where(email: auth.info.email)[0]
@@ -21,7 +21,7 @@ class User < ApplicationRecord
         user.username = auth.info.nickname if auth.provider == 'github'
         user.username = auth.info.name if auth.provider == 'facebook'
         user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+        user.password = Devise.friendly_token[0, 20]
       end
     end
   end
