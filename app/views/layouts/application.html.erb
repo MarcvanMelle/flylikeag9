@@ -16,6 +16,8 @@
         <%= submit_tag "Search", name: nil %>
       </p>
     <% end %>
+    <%= link_to "Home", root_path %>
+    <%= link_to "All Words", words_path %>
     <%= link_to "Add a new word", new_word_path %>
     <% if current_user %>
       <h4>Signed in as <%= current_user.username %></h4>

@@ -1,6 +1,7 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end %>
+<h1>All Words on WordUp</h1>
 <div id="word_list">
   <% @words.each do |word| %>
     <li>Word:<%= link_to word.word, word_path(word.id) %></li>
