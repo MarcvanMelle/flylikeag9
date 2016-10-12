@@ -24,4 +24,7 @@ FactoryGirl.define do
     rating 3
     sequence(:body) { |n| "#{n}This is a short review of a word." }
   end
+
+  factory :vote do
+  end
 end
