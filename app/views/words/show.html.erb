@@ -5,10 +5,26 @@
 <% end %>
 <h4>Reviews</h4>
   <% @reviews.each do |review| %>
+    <% if current_user %>
+      <% if !current_user.votes.empty? %>
+        <% if current_user.votes.find_by(review_id: review.id) %>
+          <% if current_user.votes.find_by(review_id: review.id).up_down %>
+            <% up_button_class_name = "upvoted" %>
+          <% else %>
+            <% down_button_class_name = "downvoted" %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <button id="up<%= review.id %>" class="button <%= up_button_class_name %>" onClick="vote(true, <%= @word.id %>, <%= review.id %>)">Up</button>
+      <button id="down<%= review.id %>" class="button <%= down_button_class_name %>" onClick="vote(false, <%= @word.id %>, <%= review.id %>)">Down</button>
+    <% end %>
+    <div id="count<%= review.id %>">
+      Review Score: <%= review.votes.where(review_id: review.id, up_down: "true").count - review.votes.where(review_id: review.id, up_down: "false").count %>
+    </div>
     <%= review.rating %> <%= review.body %>
     <% if current_user.try(:admin?) || current_user == review.user %>
-      <%= link_to "Edit Review", edit_word_review_path(@word, review) %>
-      <%= link_to "Delete Review", word_review_path(@word, review), method: :delete %>
+      <%= link_to "Edit Review", edit_word_review_path(review) %>
+      <%= link_to "Delete Review", word_review_path(review), method: :delete %>
     <% end %>
   <% end %>
 <% if user_signed_in? %>

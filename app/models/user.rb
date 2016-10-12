@@ -2,6 +2,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :words
   has_many :reviews
+  has_many :votes
 
   validates_uniqueness_of :username
   validates :username, presence: true

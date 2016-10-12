@@ -4,10 +4,14 @@ require 'devise'
 require 'coveralls'
 require 'omniauth'
 require 'capybara'
+require 'capybara-webkit'
+require 'capybara/rspec'
 
 Coveralls.wear!('rails')
 
+Capybara.javascript_driver = :webkit
 Capybara.default_host = 'http://localhost:3000'
+
 OmniAuth.config.test_mode = true
 OmniAuth.config.add_mock(:github, { uid: "12345", info: { email: "beetleborgs@gmail.com", nickname: "MightyBeetleBorg" } })
 
