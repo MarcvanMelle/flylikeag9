@@ -8,7 +8,7 @@ class WordsController < ApplicationController
       format.json do
         response_array = []
         @words.each do |word|
-          response_array << {id: word.id, word: word.word}
+          response_array << { id: word.id, word: word.word }
         end
         render json: response_array.to_json
       end
