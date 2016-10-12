@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
+gem 'twitter', '>= 5.0'
 
 group :development, :test do
   gem 'dotenv-rails'

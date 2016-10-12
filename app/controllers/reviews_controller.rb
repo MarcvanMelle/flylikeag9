@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @user = User.find(@review.word.user.id)
     if @review.save
       ReviewMailer.review_notification(@user, @review.word).deliver_now
+      $twitter.update("#{@user.username} posted a new review on #{@review.word.word}! http://peaceful-oasis-18076.herokuapp.com/words/#{@review.word.id}")
       flash[:success] = "Review was saved!"
       redirect_to word_path(params[:word_id])
     else
