@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe ReviewMailer, type: :mailer do
   describe 'instructions' do
     let(:user) { FactoryGirl.create(:user) }
-    let(:word) { FactoryGirl.create(:word, user: user)}
+    let(:word) { FactoryGirl.create(:word, user: user) }
     let(:mail) { ReviewMailer.review_notification(user, word).deliver_now }
 
     it 'renders the subject' do
