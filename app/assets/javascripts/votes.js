@@ -5,10 +5,10 @@ function vote(value, word_id, review_id) {
     url: "/words/" + word_id + "/reviews/" + review_id + "/votes",
     data: { vote: { up_down: value, review_id: review_id } },
     review: function(){
-      return review_id
+      return review_id;
     },
     value: function(){
-      return value
+      return value;
     },
     success: function(data){
       review_id = this.review();
@@ -38,5 +38,5 @@ function vote(value, word_id, review_id) {
       }
       $("#count"+review_id).text(data);
     }
-  }).success()
+  }).success();
 }

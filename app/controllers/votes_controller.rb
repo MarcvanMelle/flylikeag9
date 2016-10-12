@@ -1,7 +1,5 @@
 class VotesController < ApplicationController
-
   def create
-    reverse_vote = reverse_the_vote
     if check_same.nil? && check_oppose.nil?
       vote = Vote.new(vote_params)
       vote.save
