@@ -24,8 +24,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'mail.google.com',
-    user_name:            'noreply.wordup@gmail.com',
-    password:             'megabeef',
+    user_name:            ENV['GOOGLE_USERNAME'],
+    password:             ENV['GOOGLE_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }

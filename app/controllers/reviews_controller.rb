@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @user = User.find(@review.word.user)
+    @user = User.find(@review.word.user.id)
     if @review.save
       ReviewMailer.review_notification(@user).deliver_now
       flash[:success] = "Review was saved!"
