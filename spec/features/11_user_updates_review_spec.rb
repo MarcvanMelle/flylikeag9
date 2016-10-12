@@ -4,7 +4,6 @@ feature "User updates review" do
   let!(:user) { FactoryGirl.create_list(:user, 2) }
   let!(:word) { FactoryGirl.create(:word, user: user[0]) }
   let!(:review) { FactoryGirl.create(:review, word: word, user: user[0]) }
-  before { visit word_path(word) }
 
   context "As an authenticated user" do
     scenario "I can update a review for a word on the word's show page" do
@@ -21,8 +20,6 @@ feature "User updates review" do
 
   context "As an unauthenticated user" do
     scenario "I cannot see the Edit Review link" do
-      visit word_path(word)
-
       expect(page).to_not have_link "Edit Review"
     end
   end
