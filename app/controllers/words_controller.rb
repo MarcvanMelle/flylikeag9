@@ -3,6 +3,16 @@ class WordsController < ApplicationController
 
   def index
     @words = Word.all.order!(created_at: :desc).page params[:page]
+    respond_to do |format|
+      format.html
+      format.json do
+        response_array = []
+        @words.each do |word|
+          response_array << {id: word.id, word: word.word}
+        end
+        render json: response_array.to_json
+      end
+    end
   end
 
   def home
