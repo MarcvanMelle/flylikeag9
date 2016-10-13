@@ -25,6 +25,11 @@ class UsersController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def favorite_word
+
+    current_user.update(favorite_word_id: params[:word_id])
+  end
+
   def remove_avatar
     user = User.find(params[:id])
     user.remove_avatar!
