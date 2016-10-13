@@ -23,8 +23,8 @@
     </div>
     <%= review.rating %> <%= review.body %>
     <% if current_user.try(:admin?) || current_user == review.user %>
-      <%= link_to "Edit Review", edit_word_review_path(review) %>
-      <%= link_to "Delete Review", word_review_path(review), method: :delete %>
+      <%= link_to "Edit Review", edit_word_review_path(@word, review) %>
+      <%= link_to "Delete Review", word_review_path(@word, review), method: :delete %>
     <% end %>
   <% end %>
 <% if user_signed_in? %>
