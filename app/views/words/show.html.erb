@@ -1,4 +1,14 @@
 <%= @word.word %>
+<% if current_user %>
+  <% if current_user.favorite_word_id == @word.id %>
+    <button id="fav_button" onClick="unfavorite(null, <%= @word.id %>, <%= current_user.id %>)">Unfavorite Word</button>
+    <% favorited = "Favorited" %>
+  <% else %>
+    <button id="fav_button" onClick="favorite(null, <%= @word.id %>, <%= current_user.id %>)">Favorite Word</button>
+    <% favorited = "" %>
+  <% end %>
+<% end %>
+<div id="fav_word"><%= favorited %></div>
 <%= @word.definition %>
 <% if current_user.try(:admin?) || current_user == @word.user %>
   <%= link_to 'Update Content', edit_word_path(@word) %>
