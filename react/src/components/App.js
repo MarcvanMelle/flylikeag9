@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.getData()
+    this.getData();
     let counter = setInterval(this.getData, 10000);
   }
 

@@ -11,5 +11,5 @@ $(function() {
 });
 
 $( document ).ready(function(){
-  $("#index_div").hide()
+  $("#index_div").hide();
 });
