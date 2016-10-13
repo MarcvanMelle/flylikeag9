@@ -6,7 +6,6 @@ feature "User can see favorite word on their profile page" do
   let!(:word1) { FactoryGirl.create(:word, user: user1) }
   let!(:word2) { FactoryGirl.create(:word, user: user1) }
 
-
   context "A user can visit a profile page" do
     scenario "and see their favorite word, if it is their profile" do
       login_as(user1, scope: :user)
@@ -51,5 +50,4 @@ feature "User can see favorite word on their profile page" do
       expect(page).to_not have_link("Remove Favorite Word")
     end
   end
-
 end
