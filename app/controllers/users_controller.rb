@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     current_user.update(favorite_word_id: params[:word_id])
   end
 
+  def remove_favorite
+    current_user.update(favorite_word_id: nil)
+  end
+
   def remove_avatar
     user = User.find(params[:id])
     user.remove_avatar!

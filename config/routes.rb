@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       patch :favorite_word
+      patch :remove_favorite
       delete :remove_avatar
     end
   end
