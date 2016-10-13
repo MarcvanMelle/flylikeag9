@@ -21,7 +21,7 @@ feature "The User profile picture" do
       login_as(user, scope: :user)
       visit user_path(user)
 
-      expect(page).to have_css("img[src*='/assets/Man_Silhouette-7f29be934ab1ff88eb44399ee58e4bfda97efdf0b61ea3d17e11bf69d61bc080.jpg']")
+      expect(page).to have_css("img[src*='/assets/Man_Silhouette-08c9ee042eb020e00e9cc2b2d2a66dbfae366cb854c44cc341638aefcd6cc138.jpg']")
     end
 
     scenario "User updates their own profile picture" do
@@ -60,7 +60,7 @@ feature "The User profile picture" do
       visit user_path(user)
       click_link("Delete Profile Picture")
 
-      expect(page).to have_css("img[src*='/assets/Man_Silhouette-7f29be934ab1ff88eb44399ee58e4bfda97efdf0b61ea3d17e11bf69d61bc080.jpg']")
+      expect(page).to have_css("img[src*='/assets/Man_Silhouette-08c9ee042eb020e00e9cc2b2d2a66dbfae366cb854c44cc341638aefcd6cc138.jpg']")
     end
 
     scenario "If a user has a default profile picture they do not have a delete option" do
