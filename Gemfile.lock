@@ -250,7 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara (= 2.7.0)
+  capybara
   capybara-webkit
   carrierwave
   coveralls

@@ -20,7 +20,6 @@ feature "User updates review" do
 
   context "As an unauthenticated user" do
     scenario "I cannot see the Edit Review link" do
-      
       expect(page).to_not have_link "Edit Review"
     end
   end
