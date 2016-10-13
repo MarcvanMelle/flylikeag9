@@ -1,7 +1,9 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end %>
-<div id="word_list">
+<div id="app">
+</div>
+<div id="index_div">
   <% @words.each do |word| %>
     <li>Word:<%= link_to word.word, word_path(word.id) %></li>
   <% end %>
