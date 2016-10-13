@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def favorite_word
-
     current_user.update(favorite_word_id: params[:word_id])
   end
 
