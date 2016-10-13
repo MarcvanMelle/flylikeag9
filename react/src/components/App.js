@@ -16,8 +16,8 @@ class App extends Component {
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({data: data})
-    })
+      this.setState({data: data});
+    });
   }
 
   componentWillMount() {
