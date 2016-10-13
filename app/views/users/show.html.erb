@@ -22,12 +22,31 @@
   <% end %>
 <% end %>
 
-<h2>Submitted Reviews</h2>
-<% @user.reviews.each do |review| %>
-  <h4><%= review.word.word %></h4>
-  <h5><%= review.rating %></h5>
-  <p><%= review.body %></p>
-<% end %>
+<div id="last_five_votes">
+  <h2>Five Most Recent Votes</h2>
+  <% @votes.each_with_index do |vote, index|  %>
+    <div>
+      <%= index + 1 %>.)
+      Word: <%= vote.review.word.word %><br/>
+      Review Text: <%= vote.review.body %><br/>
+      <% if vote.up_down %>
+        Vote: Upvoted!
+      <% else %>
+        Vote: Downvoted!
+      <% end %>
+      <br/><br/>
+    </div>
+  <% end %>
+</div>
+
+<div id="submitted_reviews">
+  <h2>Submitted Reviews</h2>
+  <% @user.reviews.each do |review| %>
+    <p>Reviewed Word: <%= review.word.word %><br/>
+    Rating: <%= review.rating %><br/>
+    Review: <%= review.body %></p>
+  <% end %>
+</div>
 
 <% if current_user.try(:admin?) || current_user == @user %>
   <%= link_to "Delete User Account", user_path(@user), method: :delete %>

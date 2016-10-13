@@ -16,7 +16,7 @@ class WordsController < ApplicationController
   end
 
   def home
-    @words = Word.all.order!(created_at: :desc).limit(10)
+    @words = Word.all.order(created_at: :desc).limit(10)
   end
 
   def show

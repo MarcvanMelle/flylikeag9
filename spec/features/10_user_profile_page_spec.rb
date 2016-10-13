@@ -7,6 +7,16 @@ feature "User profile page" do
   let!(:word2) { FactoryGirl.create(:word, user: not_user) }
   let!(:review1) { FactoryGirl.create(:review, user: user, word: word1) }
   let!(:review2) { FactoryGirl.create(:review, rating: 2, user: not_user, word: word2) }
+  let!(:review3) { FactoryGirl.create(:review, rating: 2, user: not_user, word: word2) }
+  let!(:review4) { FactoryGirl.create(:review, rating: 2, user: not_user, word: word2) }
+  let!(:review5) { FactoryGirl.create(:review, rating: 2, user: not_user, word: word2) }
+  let!(:review6) { FactoryGirl.create(:review, rating: 2, user: not_user, word: word2) }
+  let!(:vote1) { FactoryGirl.create(:vote, review: review1, user: user, up_down: true, created_at: Date.new(2012, 12, 3)) }
+  let!(:vote2) { FactoryGirl.create(:vote, review: review2, user: user, up_down: true) }
+  let!(:vote3) { FactoryGirl.create(:vote, review: review3, user: user, up_down: true) }
+  let!(:vote4) { FactoryGirl.create(:vote, review: review4, user: user, up_down: true) }
+  let!(:vote5) { FactoryGirl.create(:vote, review: review5, user: user, up_down: true) }
+  let!(:vote6) { FactoryGirl.create(:vote, review: review6, user: user, up_down: true) }
 
   before { login_as(user, scope: :user) }
   before { visit user_path(user) }
@@ -29,9 +39,8 @@ feature "User profile page" do
     end
 
     scenario "I should not see words and reviews that are not mine" do
-      expect(page).to_not have_link(word2.word)
-      expect(page).to_not have_content(review2.word.word)
-      expect(page).to_not have_content(review2.body)
+      expect(page.find("#submitted_reviews")).to_not have_link(word2.word)
+      expect(page.find("#submitted_reviews")).to_not have_content(review2.body)
     end
 
     scenario "I should be able to navigate to one of my words by clicking on its link on my profile" do
@@ -51,6 +60,16 @@ feature "User profile page" do
       visit user_path(not_user)
       expect(page).to have_link(word2.word)
       expect(page).to_not have_link("Update #{word2.word}")
+    end
+
+    scenario "I should be able to see my 5 most recent votes" do
+      visit user_path(user)
+      expect(page.find("#last_five_votes")).to_not have_content(user.votes[0].review.body)
+      expect(page.find("#last_five_votes")).to have_content(user.votes[1].review.body)
+      expect(page.find("#last_five_votes")).to have_content(user.votes[2].review.body)
+      expect(page.find("#last_five_votes")).to have_content(user.votes[3].review.body)
+      expect(page.find("#last_five_votes")).to have_content(user.votes[4].review.body)
+      expect(page.find("#last_five_votes")).to have_content(user.votes[5].review.body)
     end
   end
 end
