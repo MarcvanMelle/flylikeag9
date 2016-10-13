@@ -161,14 +161,6 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.19.0)
-<<<<<<< HEAD
-    pkg-config (1.1.7)
-    poltergeist (1.11.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
-=======
->>>>>>> 3a154b34022dd61a7d7de98156f971fee1777e14
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
