@@ -22,6 +22,7 @@ class WordsController < ApplicationController
   def show
     @review = Review.new
     @reviews = @word.reviews
+    @default_image = "Man_Silhouette.jpg"
   end
 
   def new
