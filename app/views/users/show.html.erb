@@ -43,7 +43,7 @@
       <% @votes.each_with_index do |vote, index|  %>
       <div class="col s12">
         <%= index + 1 %>.)
-        Word: <%= link_to vote.review.word.word, word_path(vote.review.word.word) %><br/>
+        Word: <%= link_to vote.review.word.word, word_path(vote.review.word.id) %><br/>
         Review Text: <%= vote.review.body %><br/>
         <% if vote.up_down %>
         Vote: Upvoted!
@@ -62,7 +62,7 @@
     <hr>
       <% @user.reviews.each do |review| %>
         <div class="col s12">
-          <p>Reviewed Word: <%= link_to review.word.word, word_path(review.word.word)%><br/>
+          <p>Reviewed Word: <%= link_to review.word.word, word_path(review.word.id)%><br/>
           Rating: <%= review.rating %><br/>
           Review: <%= review.body %></p>
         </div>
