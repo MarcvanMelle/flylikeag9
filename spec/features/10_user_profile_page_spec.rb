@@ -44,7 +44,7 @@ feature "User profile page" do
     end
 
     scenario "I should be able to navigate to one of my words by clicking on its link on my profile" do
-      click_link(word1.word)
+      click_link("word#{word1.id}")
       expect(page).to have_content word1.word
       expect(page).to have_content word1.definition
     end

@@ -1,6 +1,6 @@
 <br/>
 <div class="row">
-  <div class="col s12">
+  <div class="col s8">
     <h2 class="word_head"><%= @word.word %></h2>
     <% if current_user %>
       <% if current_user.favorite_word_id == @word.id %>
@@ -13,19 +13,40 @@
     <% end %>
     <div id="fav_word"><%= favorited %></div>
   </div>
-  <div class="col s12">
+  <div class="col s8">
     <h3 class="word_def">Defintion:</h3>
     <% if current_user.try(:admin?) || current_user == @word.user %>
       <%= link_to 'Update Content', edit_word_path(@word), class: "btn" %>
     <% end %>
     <p><%= @word.definition %></p>
   </div>
-  <div class="col s12">
+  <div class="col s8" id="word_user">
+    <h5 class="creator_tag">
+      <% if @word.user.avatar? %>
+        <%= image_tag @word.user.avatar_url(:thumb) %>
+      <% else %>
+        <%= image_tag @default_image %>
+      <% end %>
+      Submitted by: <%= link_to @word.user.username, user_path(@word.user) %>
+    </h5>
+    <br/><br/><hr>
+  </div>
+  <div class="col s8">
     <h4>Reviews</h4>
       <% @reviews.each do |review| %>
-      <div id="count<%= review.id %>">
-        Review Score: <%= review.votes.where(review_id: review.id, up_down: "true").count - review.votes.where(review_id: review.id, up_down: "false").count %>
-      </div>
+        <hr><br>
+        <div id="review_user<%= review.id %>">
+          <p class="creator_tag">
+            <% if review.user.avatar? %>
+              <%= image_tag review.user.avatar_url(:thumb) %>
+            <% else %>
+              <%= image_tag @default_image %>
+            <% end %>
+            Submitted by: <%= link_to review.user.username, user_path(review.user) %>
+          </p>
+        </div>
+        <h4>Rating: <%= review.rating %>/5</h4>
+        <p><%= review.body %></p>
         <% if current_user %>
           <% if !current_user.votes.empty? %>
             <% if current_user.votes.find_by(review_id: review.id) %>
@@ -39,14 +60,21 @@
           <button id="up<%= review.id %>" class="btn <%= up_button_class_name %>" onClick="vote(true, <%= @word.id %>, <%= review.id %>)">Up</button>
           <button id="down<%= review.id %>" class="btn <%= down_button_class_name %>" onClick="vote(false, <%= @word.id %>, <%= review.id %>)">Down</button>
         <% end %>
-        <h4>Rating: <%= review.rating %>/5</h4>
-        <p><%= review.body %></p>
-        <% if current_user.try(:admin?) || current_user == review.user %>
+        <div class="review_score" id="count<%= review.id %>">
+          Review Score: <%= review.votes.where(review_id: review.id, up_down: "true").count - review.votes.where(review_id: review.id, up_down: "false").count %>
+        </div>
+        <br><br>
+        <div>
+          <% if current_user.try(:admin?) || current_user == review.user %>
           <%= link_to "Edit Review", edit_word_review_path(@word, review), class: "btn" %>
           <%= link_to "Delete Review", word_review_path(@word, review), method: :delete, class: "btn" %>
-        <% end %>
+          <% end %>
+        </div>
+        <br>
       <% end %>
+      <hr>
     <% if user_signed_in? %>
+      <h4>Write a new review for <%= @word.word %></h4>
       <%= render "/layouts/review_form" %>
     <% end %>
   </div>

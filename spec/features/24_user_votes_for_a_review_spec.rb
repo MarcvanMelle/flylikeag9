@@ -16,11 +16,11 @@ feature "User can vote on a review" do
       expect(page).to have_button("Up")
       expect(page).to have_button("Down")
 
-      expect(page.find("#up#{review.id}")['class']).to eq("button ")
-      expect(page.find("#down#{review.id}")['class']).to eq("button ")
+      expect(page.find("#up#{review.id}")['class']).to eq("btn ")
+      expect(page.find("#down#{review.id}")['class']).to eq("btn ")
 
-      expect(page.find("#up#{review2.id}")['class']).to eq("button ")
-      expect(page.find("#down#{review2.id}")['class']).to eq("button ")
+      expect(page.find("#up#{review2.id}")['class']).to eq("btn ")
+      expect(page.find("#down#{review2.id}")['class']).to eq("btn ")
     end
 
     scenario "I can see an accurate vote-count associate with each review on the word" do
@@ -33,14 +33,14 @@ feature "User can vote on a review" do
     scenario "I can click on the upvote button of a specific review, and the vote-count and vote buttons update" do
       FactoryGirl.create(:vote, user: user1, review: review, up_down: "true")
       visit word_path(word)
-      expect(page.find("#up#{review.id}")['class']).to eq("button upvoted")
+      expect(page.find("#up#{review.id}")['class']).to eq("btn upvoted")
       expect(page.find("#count#{review.id}").text).to eq("Review Score: 1")
     end
 
     scenario "I can click on the downvote button of a specific review, and the vote-count and vote buttons update" do
       FactoryGirl.create(:vote, user: user1, review: review, up_down: "false")
       visit word_path(word)
-      expect(page.find("#down#{review.id}")['class']).to eq("button downvoted")
+      expect(page.find("#down#{review.id}")['class']).to eq("btn downvoted")
       expect(page.find("#count#{review.id}").text).to eq("Review Score: -1")
     end
   end

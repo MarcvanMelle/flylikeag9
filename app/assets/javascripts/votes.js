@@ -36,7 +36,7 @@ function vote(value, word_id, review_id) {
           $("#down"+review_id).addClass("downvoted");
         }
       }
-      $("#count"+review_id).text(data);
+      $("#count"+review_id).text("Review Score: " + data);
     }
   }).success();
 }
