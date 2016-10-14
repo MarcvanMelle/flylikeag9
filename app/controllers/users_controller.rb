@@ -70,7 +70,9 @@ class UsersController < ApplicationController
   end
 
   def user_valid_destroy
-    @user.reviews.destroy_all
+    @user.reviews.each do |review|
+      review.votes.destroy_all
+    end
     @user.words.destroy_all
     @user.votes.destroy_all
     @user.destroy
