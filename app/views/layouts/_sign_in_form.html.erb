@@ -1,11 +1,21 @@
 <%= form_for(:user, url: session_path(:user)) do |f| %>
-  <%= f.label :email, "Login-Email" %>
-  <%= f.text_field :email %>
-  <%= f.label :password, "Login-Password" %>
-  <%= f.password_field :password %>
-  <%= f.check_box :remember_me %>
-  <%= f.label :remember_me %>
-  <%= f.submit "Sign in", id: "login_btn" %>
-  <%= link_to "Forgot your password?", new_user_password_path(:user) %>
-  <%= link_to "Sign up", new_user_registration_path %>
+  <div class='row right col s12 m6 l6'>
+    <div class='col s6 m4 l3'>
+      <%= f.label :email, "Login-Email", class: "search_label" %>
+      <%= f.text_field :email, class: "search_text" %>
+    </div>
+    <div class='col s6 m4 l3'>
+      <%= f.label :password, "Login-Password", class: "search_label" %>
+      <%= f.password_field :password, class: "search_text" %>
+    </div>
+    <div class='col s6 m4 l3'>
+      <br/>
+      <%= f.submit "Sign in", id: "login_btn", class: 'btn' %>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+    <div class="col s4 l3 forgot">
+      <%= link_to "Forgot your password?", new_user_password_path(:user), id: "top_link" %>
+    </div>
+  </div>
 <% end %>

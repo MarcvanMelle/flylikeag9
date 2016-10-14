@@ -1,61 +1,79 @@
-<div>
-  <% if @user.avatar? %>
-    <%= image_tag @user.avatar_url(:thumb) %>
-  <% else %>
-    <%= image_tag @default_image %>
-  <% end %>
-  <% if current_user == @user %>
-    <%= link_to 'Update Profile Picture', edit_user_path(@user) %>
-  <% end %>
-  <% if current_user == @user  && @user.avatar? %>
-  <%= link_to "Delete Profile Picture", remove_avatar_user_path(@user), method: :delete %>
-  <% end %>
+<div class="row">
+  <div class="col s12">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar_url(:thumb) %>
+    <% else %>
+      <%= image_tag @default_image %>
+    <% end %>
+    <% if current_user == @user %>
+      <%= link_to 'Update Profile Picture', edit_user_path(@user), class: "btn" %>
+    <% end %>
+    <% if current_user == @user  && @user.avatar? %>
+      <%= link_to "Delete Profile Picture", remove_avatar_user_path(@user), method: :delete, class: "btn" %>
+    <% end %>
+    <h1><%= @user.username %>'s Profile Page</h1>
+  </div>
 
-  <h1><%= @user.username %>'s Profile Page</h1>
-</div>
-
-<% if @user.favorite_word_id %>
-  <h5>Favorite Word: <%= Word.find(@user.favorite_word_id).word %></h5>
-  <% if current_user == @user %>
-    <%= link_to "Remove Favorite Word", remove_favorite_user_path, method: :patch %>
-  <% end %>
-<% end %>
-
-<h2>Submitted Words</h2>
-<% @user.words.each do |word| %>
-  <%= link_to word.word, word_path(word) %>
-  <% if current_user == @user %>
-    <%= link_to "Update #{word.word}", edit_word_path(word) %>
-  <% end %>
-<% end %>
-
-<div id="last_five_votes">
-  <h2>Five Most Recent Votes</h2>
-  <% @votes.each_with_index do |vote, index|  %>
-    <div>
-      <%= index + 1 %>.)
-      Word: <%= vote.review.word.word %><br/>
-      Review Text: <%= vote.review.body %><br/>
-      <% if vote.up_down %>
-        Vote: Upvoted!
-      <% else %>
-        Vote: Downvoted!
+  <div class="col s12">
+    <% if @user.favorite_word_id %>
+      <h5 id="fav_word">Favorite Word: <%= Word.find(@user.favorite_word_id).word %></h5>
+      <% if current_user == @user %>
+        <%= link_to "Remove Favorite Word", remove_favorite_user_path, method: :patch, class: "btn" %>
       <% end %>
-      <br/><br/>
+    <% end %>
+    <br><br><hr><br>
+  </div>
+
+  <h2>Submitted Words</h2>
+  <% @user.words.each do |word| %>
+    <ul>
+      <li>
+        <%= link_to word.word, word_path(word), id: "word#{word.id}" %>
+        <% if current_user == @user %>
+          <%= link_to "Update #{word.word}", edit_word_path(word), class: "btn" %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <div id="last_five_votes">
+    <div class="col s8">
+      <h2>Five Most Recent Votes</h2>
+      <hr>
+      <% @votes.each_with_index do |vote, index|  %>
+      <div class="col s12">
+        <%= index + 1 %>.)
+        Word: <%= link_to vote.review.word.word, word_path(vote.review.word.word) %><br/>
+        Review Text: <%= vote.review.body %><br/>
+        <% if vote.up_down %>
+        Vote: Upvoted!
+        <% else %>
+        Vote: Downvoted!
+        <% end %>
+        <br/><br/>
+      </div>
+      <hr>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
 
-<div id="submitted_reviews">
-  <h2>Submitted Reviews</h2>
-  <% @user.reviews.each do |review| %>
-    <p>Reviewed Word: <%= review.word.word %><br/>
-    Rating: <%= review.rating %><br/>
-    Review: <%= review.body %></p>
-  <% end %>
-</div>
+  <div class="col s8" id="submitted_reviews">
+    <h2>Submitted Reviews</h2>
+    <hr>
+      <% @user.reviews.each do |review| %>
+        <div class="col s12">
+          <p>Reviewed Word: <%= link_to review.word.word, word_path(review.word.word)%><br/>
+          Rating: <%= review.rating %><br/>
+          Review: <%= review.body %></p>
+        </div>
+        <hr>
+      <% end %>
+  </div>
 
-<% if current_user.try(:admin?) || current_user == @user %>
-  <%= link_to "Delete User Account", user_path(@user), method: :delete %>
-  <%= link_to "Edit your account", edit_user_registration_path %>
-<% end %>
+  <div class="col s8">
+    <% if current_user.try(:admin?) || current_user == @user %>
+      <%= link_to "Edit your account", edit_user_registration_path, class: "btn" %>
+      <%= link_to "Delete User Account", user_path(@user), method: :delete, class: "btn" %>
+    <% end %>
+  </div>
+</div>

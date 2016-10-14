@@ -1,6 +1,8 @@
-<% if flash[:error] %>
-  <%= flash[:error] %>
-<% end %>
+<div id="flash_bar" class="row">
+  <% if flash[:error] %>
+    <h5 class="center-align"><%= flash[:error] %></h5>
+  <% end %>
+</div>
 
 <h1>All Words on WordUp</h1>
 
@@ -8,7 +10,7 @@
 </div>
 <div id="index_div">
   <% @words.each do |word| %>
-    <li>Word:<%= link_to word.word, word_path(word.id) %></li>
+    <li><%= link_to word.word, word_path(word.id) %></li>
   <% end %>
 </div>
 <div>

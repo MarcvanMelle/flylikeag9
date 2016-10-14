@@ -37,7 +37,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     if authorized_party
-      if @review.delete
+      if @review.valid?
+        @review.votes.destroy_all
+        @review.destroy
         flash[:success] = "Review was deleted!"
         redirect_to word_path(@word)
       else

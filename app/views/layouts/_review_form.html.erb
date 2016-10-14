@@ -1,12 +1,19 @@
 <%= form_for [@word, @review] do |f| %>
+  <div class='row'>
+      <% unless @review.user && current_user.try(:admin?)%>
+      <div class='col s8'>
+        <%= f.label :rating, "Rating", class: "new_word_label" %>
+        <%= f.select :rating, options_for_select(["0", "1", "2", "3", "4", "5"]), {}, { class: 'browser-default' } %>
+      </div>
+      <% end %>
 
-  <% unless @review.user && current_user.try(:admin?)%>
-    <%= f.label :rating, "Rating" %>
-    <%= f.select :rating, options_for_select(["0", "1", "2", "3", "4", "5"]) %>
-  <% end %>
+    <div class='col s8'>
+      <%= f.label :body, "Review Text", class: "new_word_label" %>
+      <%= f.text_area :body, class: "text_area" %>
+    </div>
 
-  <%= f.label :body, "Review Text" %>
-  <%= f.text_field :body %>
-
-  <%= f.submit "Save Review" %>
+    <div class='col s8'>
+      <%= f.submit "Save Review",class: "btn" %>
+    </div>
+  </div>
 <% end %>

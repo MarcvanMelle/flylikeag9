@@ -15,14 +15,16 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'twitter', '>= 5.0'
 gem 'dotenv-rails'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.7.1'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
+  gem 'rb-readline'
 end
 
 group :test do

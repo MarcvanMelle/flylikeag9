@@ -4,8 +4,8 @@ feature "User can sign in with a third party authentication service (ie facebook
   before { visit root_path }
   context "As an unauthenticated user" do
     scenario "I can see sign-in buttons for supported services" do
-      expect(page).to have_link("Sign in with Github")
-      expect(page).to have_link("Sign in with Facebook")
+      expect(page).to have_link("Github")
+      expect(page).to have_link("Facebook")
     end
 
     scenario "I can be logged in using my third party credentials" do
