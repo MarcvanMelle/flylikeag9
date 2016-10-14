@@ -70,11 +70,9 @@ class UsersController < ApplicationController
   end
 
   def user_valid_destroy
-    @user.reviews.each(&:destroy)
-    @user.words.each do |word|
-      word.reviews.destroy_all
-    end
-    @user.words.each(&:destroy)
+    @user.reviews.destroy_all
+    @user.words.destroy_all
+    @user.votes.destroy_all
     @user.destroy
     flash[:success] = "User Account successfully closed"
     admin_redirect
