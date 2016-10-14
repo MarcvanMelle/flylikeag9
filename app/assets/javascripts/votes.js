@@ -16,10 +16,10 @@ function vote(value, word_id, review_id) {
       if (value) {
         if ($("#up"+review_id).attr('class').includes("upvoted")){
           $("#up"+review_id).removeClass();
-          $("#up"+review_id).addClass("button");
+          $("#up"+review_id).addClass("btn");
         } else if ($("#down"+review_id).attr('class').includes("downvoted")){
           $("#down"+review_id).removeClass();
-          $("#down"+review_id).addClass("button");
+          $("#down"+review_id).addClass("btn");
           $("#up"+review_id).addClass("upvoted");
         } else {
           $("#up"+review_id).addClass("upvoted");
@@ -27,10 +27,10 @@ function vote(value, word_id, review_id) {
       } else {
         if ($("#down"+review_id).attr('class').includes("downvoted")){
           $("#down"+review_id).removeClass();
-          $("#down"+review_id).addClass("button");
+          $("#down"+review_id).addClass("btn");
         } else if ($("#up"+review_id).attr('class').includes("upvoted")){
           $("#up"+review_id).removeClass();
-          $("#up"+review_id).addClass("button");
+          $("#up"+review_id).addClass("btn");
           $("#down"+review_id).addClass("downvoted");
         } else {
           $("#down"+review_id).addClass("downvoted");

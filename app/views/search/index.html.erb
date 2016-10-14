@@ -1,5 +1,7 @@
-<ul>
-<% @word_results.each do |word| %>
-  <li><%= link_to word.word, word_path(word) %></li>
-<% end %>
-</ul>
+<div class="search_results">
+  <ul>
+    <% @word_results.each do |word| %>
+    <li><%= link_to word.word, word_path(word) %></li>
+    <% end %>
+  </ul>
+</div>

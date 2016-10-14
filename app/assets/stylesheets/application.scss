@@ -1,6 +1,58 @@
 // @import "*";
+@import "materialize";
+
+
+$pale: #05A4D1;
+$light: #057EA0;
+$primary: #156379;
+$deep: #184B59;
+$dark: #1A3841;
+$off_white: #EAF7FA;
+$white: #ffffff;
+$black: #000000;
+$flash: #07BBEE;
+
 $green: #00ff00;
 $red: #ff0000;
+
+body {
+  background-color: $off_white;
+  font-family: 'Special Elite', cursive;
+}
+
+a:hover {
+  color: $pale;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+li {
+  font-size: 2rem;
+  list-style: none;
+  margin-left: 3rem;
+}
+
+div#app {
+  font-size: 2rem;
+}
+
+div#app a {
+  color: $dark;
+}
+
+div#app a:hover {
+  color: $light;
+}
+
+#word_list a {
+  color: $dark;
+}
+
+#word_list a:hover {
+  color: $light;
+}
 
 .upvoted {
   color: $green;
@@ -8,4 +60,173 @@ $red: #ff0000;
 
 .downvoted {
   color: $red;
+}
+
+.header {
+  padding: 2rem;
+}
+
+.header-link {
+  font-size: 1.5rem;
+}
+
+.sign_in_links {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.nav_btn {
+  width: 20rem;
+}
+
+.flash_notes {
+  margin: auto;
+}
+
+.text_area {
+  height: 10rem;
+}
+
+h5 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
+}
+
+a {
+  color: $dark;
+}
+
+a:hover {
+  color: $light;
+}
+
+.btn a {
+  color: $white;
+}
+
+.btn {
+  background-color: $light;
+}
+
+.btn:hover {
+  background-color: $pale;
+}
+
+.search_text[type=text] {
+  font-size: 1.5rem;
+}
+
+.search_label {
+  font-size: 1.2rem;
+}
+
+.new_word_label {
+  font-size: 2rem;
+  color: $dark;
+}
+
+.search_results ul li a {
+  color: $dark;
+}
+
+.search_results ul li a:hover {
+  color: $light;
+}
+
+.forgot {
+  margin-top: 2rem;
+}
+
+.word_head {
+  display: inline;
+}
+
+.word_def {
+  display: inline;
+}
+
+label {
+  color: $off_white;
+}
+
+input#search {
+  color: $off_white;
+}
+
+input {
+  color: $black;
+}
+
+input[type=text]#search {
+  border-color: $white;
+}
+
+input[type=text] {
+  border-color: $black;
+  font-size: 2rem;
+}
+
+input[type=password] {
+  border-color: $black;
+  font-size: 2rem;
+}
+
+input[type=text]:focus {
+  border-bottom: 1px solid $black;
+}
+
+input[type=email] {
+  border-color: $black;
+  font-size: 2rem;
+}
+
+input[type=email]:focus {
+  border-bottom: 1px solid $black;
+}
+
+h2 {
+  margin: 0;
+  padding-top: 1rem;
+}
+
+#topmost_bar {
+  background-color: $deep;
+}
+
+#top_link {
+  color: $off_white;
+}
+
+#top_link:hover {
+  color: $light;
+}
+
+#sub_top_bar {
+  background-color: $deep;
+}
+
+#bread_bar {
+  background-color: $dark;
+}
+
+#flash_bar {
+  color: $white;
+  background-color: $flash;
+}
+
+#word_word {
+  border-color: $black;
+}
+
+#nav_info {
+  color: $white;
+}
+
+#fav_word {
+  display: inline;
 }

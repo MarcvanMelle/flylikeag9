@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'twitter', '>= 5.0'
 gem 'dotenv-rails'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'pry-rails'
